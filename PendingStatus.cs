@@ -1,18 +1,17 @@
-﻿// See https://aka.ms/new-console-template for more information
-public class PendingStatus : IOrderStatus
+﻿public class PendingStatus : IOrderStatus
 {
-    public void ProcessOrder()
+    public void ProcessOrder(Order order)
     {
         Console.WriteLine("Processing the order.");
-        // Transition to ProcessingStatus
+        order.SetStatus(new ProcessingStatus());
     }
 
-    public void ShipOrder()
+    public void ShipOrder(Order order)
     {
         Console.WriteLine("Cannot ship the order, it is not yet processed.");
     }
 
-    public void CompleteOrder()
+    public void CompleteOrder(Order order)
     {
         Console.WriteLine("Cannot complete the order, it is not yet processed.");
     }

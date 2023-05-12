@@ -1,20 +1,18 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-public class ShippedStatus : IOrderStatus
+﻿public class ShippedStatus : IOrderStatus
 {
-    public void ProcessOrder()
+    public void ProcessOrder(Order order)
     {
         Console.WriteLine("Cannot process the order, it is already shipped.");
     }
 
-    public void ShipOrder()
+    public void ShipOrder(Order order)
     {
         Console.WriteLine("Order is already shipped.");
     }
 
-    public void CompleteOrder()
+    public void CompleteOrder(Order order)
     {
         Console.WriteLine("Completing the order.");
-        // Transition to DeliveredStatus
+        order.SetStatus(new DeliveredStatus());
     }
 }

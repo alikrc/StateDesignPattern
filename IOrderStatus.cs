@@ -1,7 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-public interface IOrderStatus
+﻿public interface IOrderStatus
 {
-    void ProcessOrder();
-    void ShipOrder();
-    void CompleteOrder();
+    void ProcessOrder(Order order);
+
+    void ShipOrder(Order order);
+
+    void CompleteOrder(Order order);
 }
